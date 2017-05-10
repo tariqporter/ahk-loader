@@ -1,19 +1,87 @@
 {
-  "name": "ahk-loader",
-  "version": "1.0.0",
-  "description": "A loader for autohotkey files to take the source from #include",
-  "main": "loader.js",
-  "scripts": {
+  "_args": [
+    [
+      {
+        "raw": "ahk-loader@^1.0.0",
+        "scope": null,
+        "escapedName": "ahk-loader",
+        "name": "ahk-loader",
+        "rawSpec": "^1.0.0",
+        "spec": ">=1.0.0 <2.0.0",
+        "type": "range"
+      },
+      "C:\\Users\\tic\\Desktop\\Gdip2"
+    ],
+    [
+      {
+        "raw": "ahk-loader@^1.1.0",
+        "scope": null,
+        "escapedName": "ahk-loader",
+        "name": "ahk-loader",
+        "rawSpec": "^1.1.0",
+        "spec": ">=1.1.0 <2.0.0",
+        "type": "range"
+      },
+      "C:\\Users\\tic\\Desktop\\Gdip2"
+    ]
+  ],
+  "_from": "ahk-loader@^1.1.0",
+  "_id": "ahk-loader@1.1.1",
+  "_inCache": true,
+  "_location": "/ahk-loader",
+  "_nodeVersion": "6.10.2",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/ahk-loader-1.1.1.tgz_1494402196696_0.4302805687766522"
   },
-  "keywords": [],
+  "_npmUser": {
+    "name": "tariqporter",
+    "email": "tic084@gmail.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "ahk-loader@^1.1.0",
+    "scope": null,
+    "escapedName": "ahk-loader",
+    "name": "ahk-loader",
+    "rawSpec": "^1.1.0",
+    "spec": ">=1.1.0 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/ahk-loader/-/ahk-loader-1.1.1.tgz",
+  "_shasum": "c53696a1aeb32b0d39fcd701e6e539577efd67b1",
+  "_shrinkwrap": null,
+  "_spec": "ahk-loader@^1.1.0",
+  "_where": "C:\\Users\\tic\\Desktop\\Gdip2",
   "author": {
     "name": "Tariq Porter @tariqporter"
   },
+  "dependencies": {},
+  "description": "A loader for autohotkey files to take the source from #include",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "c53696a1aeb32b0d39fcd701e6e539577efd67b1",
+    "tarball": "https://registry.npmjs.org/ahk-loader/-/ahk-loader-1.1.1.tgz"
+  },
+  "gitHead": "2d9e73617b0338cf29454fe1464ef1e224b6c70a",
+  "keywords": [],
   "license": "MIT",
+  "main": "loader.js",
   "maintainers": [
-  {
-    "name": "tariqporter",
-    "email": "tariqporter@gmail.com"
-  }
-  ]
+    {
+      "name": "tariqporter",
+      "email": "tic084@gmail.com"
+    }
+  ],
+  "name": "ahk-loader",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {},
+  "version": "1.1.1"
 }
