@@ -1,19 +1,18 @@
 {
   "name": "ahk-loader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A loader for autohotkey files to take the source from #include",
   "main": "loader.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [],
   "author": {
     "name": "Tariq Porter @tariqporter"
   },
   "license": "MIT",
   "maintainers": [
-  {
-    "name": "tariqporter",
-    "email": "tariqporter@gmail.com"
-  }
+    {
+      "name": "tariqporter",
+      "email": "tariqporter@gmail.com"
+    }
   ]
 }
