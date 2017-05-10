@@ -3,27 +3,41 @@
 	Author Tariq Porter @tariqporter
 */
 
-var path = require("path");
-var fs = require("fs");
+const path = require("path");
+const fs = require("fs");
+
+function getRecursiveSource(module, source) {
+	const REGEX_INCLUDE = /^([\t ])#Include\s+(.*)$/gim;
+	let replaceNewLine = function(s) {
+		return s.replace(/\r\n/gm, '\n');
+	};
+	
+	source = replaceNewLine(source);
+	let result = REGEX_INCLUDE.exec(source);
+	
+	while (result != null) {
+		let match = result[0];
+		let indent = result[1];
+		let includePath = path.resolve(result[2]);
+		if (!fs.existsSync(includePath)) {
+			throw new Error("File does not exist: " + includePath);
+		}
+		
+		module.addDependency(includePath);
+		let includeSource = fs.readFileSync(includePath, "utf-8");
+		includeSource = getRecursiveSource(module, includeSource);
+		includeSource = replaceNewLine(includeSource).replace(/^/gm, indent);
+		source = source.replace(match, includeSource);
+		result = REGEX_INCLUDE.exec(source);
+	}
+	return source;
+}
 
 function ahkLoader(source) {
+	const self = this;
 	const callback = this.async();
-	var re = /^([\t ])#Include\s+(.*)$/gim;
-	var re2 = /(^.*$)/gim;
-	source = source.replace(/\r\n/gm, '\n');
-	var result = re.exec(source);
-	if (!fs.existsSync(result[2])) {
-		throw new Error("File does not exist: " + result[2]);
-	}
-	
-	var innerSource = null;
-	while (result != null) {
-		this.addDependency(path.resolve(result[2]));
-		innerSource = fs.readFileSync(result[2], "utf-8");
-		innerSource = innerSource.replace(/\r\n/gm, '\n').replace(/^/gm, result[1]);
-		source = source.replace(result[0], innerSource);
-		result = re.exec(source);
-	}
+
+	source = getRecursiveSource(self, source);
 
 	var exp = `
 		exports = module.exports = [];
