@@ -10,13 +10,15 @@ function ahkLoader(source) {
 	const callback = this.async();
 	var re = /^([\t ])#Include\s+(.*)$/gim;
 	var re2 = /(^.*$)/gim;
-	var result = re.exec(source.replace(/\r\n/gm, '\n'));
+	source = source.replace(/\r\n/gm, '\n');
+	var result = re.exec(source);
 	if (!fs.existsSync(result[2])) {
 		throw new Error("File does not exist: " + result[2]);
 	}
 	
 	var innerSource = null;
 	while (result != null) {
+		this.addDependency(path.resolve(result[2]));
 		innerSource = fs.readFileSync(result[2], "utf-8");
 		innerSource = innerSource.replace(/\r\n/gm, '\n').replace(/^/gm, result[1]);
 		source = source.replace(result[0], innerSource);
