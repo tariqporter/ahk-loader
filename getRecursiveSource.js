@@ -13,7 +13,7 @@ function getRecursiveSource(module, source) {
 	while (result != null) {
 		let match = result[0];
 		let indent = result[1];
-		let includePath = path.resolve(result[2]);
+		let includePath = path.resolve(path.join(module.context, result[2]));
 		if (!fs.existsSync(includePath)) {
 			throw new Error("File does not exist: " + includePath);
 		}
