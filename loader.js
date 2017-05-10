@@ -39,11 +39,8 @@ function ahkLoader(source) {
 
 	source = getRecursiveSource(self, source);
 
-	var exp = `
-		exports = module.exports = [];
-		{{moduleJS}}
-	`;
-	exp = exp.replace(/{{moduleJS}}/g, "exports.push([0, `" + source + "`, '']);");
+	var exp = "exports = module.exports = [];\n" +
+		"exports.push([0, `" + source + "`, '']);";
 	callback(null, exp);
 };
 module.exports = ahkLoader;
