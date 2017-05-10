@@ -16,16 +16,16 @@ Can be used with [ExtractTextPlugin](https://github.com/webpack-contrib/extract-
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 //...
 module.exports = {
-	module: {
-		loaders: [{
-			test: /\.ahk$/,
-			exclude: /node_modules/,
-			use: ExtractTextPlugin.extract({
-				use: [{
-					loader: 'ahk-loader'
-				}]
-			})
-		}]
-	}
+    module: {
+        loaders: [{
+            test: /\.ahk$/,
+            exclude: /node_modules/,
+            use: ExtractTextPlugin.extract({
+                use: [{
+                    loader: 'ahk-loader'
+                }]
+            })
+        }]
+    }
 }
 ```
