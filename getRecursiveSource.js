@@ -7,7 +7,7 @@ function getRecursiveSource(module, source) {
 		return s.replace(/\r\n/gm, '\n');
 	};
 	
-	source = replaceNewLine(source);
+	source = replaceNewLine(source).replace(/`/g, '\\`');
 	let result = REGEX_INCLUDE.exec(source);
 	
 	while (result != null) {
@@ -21,7 +21,7 @@ function getRecursiveSource(module, source) {
 		module.addDependency(includePath);
 		let includeSource = fs.readFileSync(includePath, "utf-8");
 		includeSource = getRecursiveSource(module, includeSource);
-		includeSource = replaceNewLine(includeSource).replace(/^/gm, indent).replace(/`/g, '\\`');
+		includeSource = replaceNewLine(includeSource).replace(/`/g, '\\`').replace(/^/gm, indent);
 		source = source.replace(match, includeSource);
 		result = REGEX_INCLUDE.exec(source);
 	}
