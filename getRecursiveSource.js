@@ -7,7 +7,7 @@ function getRecursiveSource(module, source) {
 		return s.replace(/\r\n/gm, '\n');
 	};
 	
-	source = replaceNewLine(source).replace(/`/g, '\\`');
+	source = replaceNewLine(source).replace(/\\/g, '\\\\').replace(/`/g, '\\`');
 	let result = REGEX_INCLUDE.exec(source);
 	
 	while (result != null) {
