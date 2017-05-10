@@ -21,7 +21,7 @@ function getRecursiveSource(module, source) {
 		module.addDependency(includePath);
 		let includeSource = fs.readFileSync(includePath, "utf-8");
 		includeSource = getRecursiveSource(module, includeSource);
-		includeSource = replaceNewLine(includeSource).replace(/^/gm, indent);
+		includeSource = replaceNewLine(includeSource).replace(/^/gm, indent).replace(/`/g, '\\`');
 		source = source.replace(match, includeSource);
 		result = REGEX_INCLUDE.exec(source);
 	}
