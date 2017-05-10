@@ -15,17 +15,17 @@ Can be used with [ExtractTextPlugin](https://github.com/webpack-contrib/extract-
 ``` javascript
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 //...
-module.exports = {
-	module: {
-		loaders: [{
-			test: /\.ahk$/,
-			exclude: /node_modules/,
-			use: ExtractTextPlugin.extract({
-                use: [{
-                    loader: 'ahk-loader'
-                }]
-			})
-		}]
+	module.exports = {
+		module: {
+			loaders: [{
+				test: /\.ahk$/,
+				exclude: /node_modules/,
+				use: ExtractTextPlugin.extract({
+					use: [{
+						loader: 'ahk-loader'
+					}]
+				})
+			}]
+		}
 	}
-}
 ```
