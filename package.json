@@ -1,7 +1,7 @@
 {
   "name": "ahk-loader",
-  "version": "1.1.2",
-  "description": "A loader for autohotkey files to take the source from #include",
+  "version": "1.1.3",
+  "description": "A webpack loader for autohotkey files, to take the source from #include",
   "main": "loader.js",
   "scripts": {},
   "keywords": [],
